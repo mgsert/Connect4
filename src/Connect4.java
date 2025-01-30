@@ -19,9 +19,34 @@ public class Connect4 {
                 continue;
             }
 
+            if (!makeMove(column)) {
+                System.out.println(" Column is full. Try again. ");
+                continue;
+            }
+
+            if (checkWinner()) {
+                printBoard();
+                System.out.println(" Player "+ currentPlayer + " wins!");
+                break;
+            }
+
+            currentPlayer = ( currentPlayer==1) ? 2:1 ;
+
+        }
+
+        scanner.close();
+    }
+
+    public static void initializeBoard() {
+        for (int row =0; row <ROWS; row++ ) {
+            for (int col= 0; col < COLS; col++) {
+                board[row] [col] =0;
+            }
             
         }
     }
+
+    
 
 
 }
