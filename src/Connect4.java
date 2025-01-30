@@ -84,10 +84,32 @@ public class Connect4 {
             }
         }
 
-        
+        for ( int row =0; row < ROWS -3 ; row++) {
+            for ( int col=0; col < COLS; col++) {
+                if ( board[row][col] == currentPlayer &&
+                    board[row][col] == board[row + 1][col + 1] &&
+                    board[row][col] == board[row + 2][col + 2] &&
+                    board[row][col] == board[row + 3][col + 3]) {
+                        return true;
+                }
+                
+            }
+        }
+
+        for ( int row =3; row<ROWS; row++) {
+            for (int col=0; col < COLS; col++) {
+                if (board [row][col] == currentPlayer &&
+                    board [row][col] == board[row -1][col +1] &&
+                    board [row][col] == board[row -2][col +2] &&
+                    board [row][col] == board [row -3][col +3]) {
+                    return true;
+                }
+                
+            }
+        }
+
+        return false;
+
     }
-
-
-
 
 }
