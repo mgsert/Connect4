@@ -46,7 +46,48 @@ public class Connect4 {
         }
     }
 
-    
+    public static void printBoard() {
+        for (int row =0; row< ROWS ; row++) {
+            for (int col = 0; col < COLS ;col++){
+                if (board[row][col] ==0 ) {
+                    System.out.println(" [] ");
+                } else {
+                    System.out.print(" [" + (board[row][col] == 1  ?  "X" : "0") + "] ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static boolean makeMove( int column){
+        for ( int row = ROWS -1; row >=0 ;row --) {
+            if (board[row][column] ==0) {
+                board [row][column] = currentPlayer;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean checkWinner(){
+        for ( int row=0 ; row < ROWS; row++ ) {
+            for ( int col = 0 ; col < COLS -3 ; col++) {
+                if (board[row][col] == currentPlayer &&
+                    board[row][col] == board[row][col +1] &&
+                    board[row][col] == board [row][col +2]&&
+                    board[row][col] == board [row][col+3]) {
+                    return true;
+
+                }
+                
+            }
+        }
+
+        
+    }
+
+
 
 
 }
