@@ -50,7 +50,7 @@ public class Connect4 {
         for (int row =0; row< ROWS ; row++) {
             for (int col = 0; col < COLS ;col++){
                 if (board[row][col] ==0 ) {
-                    System.out.println(" [] ");
+                    System.out.print("[ ] ");
                 } else {
                     System.out.print(" [" + (board[row][col] == 1  ?  "X" : "0") + "] ");
                 }
@@ -74,9 +74,9 @@ public class Connect4 {
         for ( int row=0 ; row < ROWS; row++ ) {
             for ( int col = 0 ; col < COLS -3 ; col++) {
                 if (board[row][col] == currentPlayer &&
-                    board[row][col] == board[row][col +1] &&
-                    board[row][col] == board [row][col +2]&&
-                    board[row][col] == board [row][col+3]) {
+                    board[row][col] == board[row][col + 1] &&
+                    board[row][col] == board [row][col + 2]&&
+                    board[row][col] == board [row][col + 3]) {
                     return true;
 
                 }
@@ -90,14 +90,14 @@ public class Connect4 {
                     board[row][col] == board[row + 1][col + 1] &&
                     board[row][col] == board[row + 2][col + 2] &&
                     board[row][col] == board[row + 3][col + 3]) {
-                        return true;
+                    return true;
                 }
                 
             }
         }
 
-        for ( int row =3; row<ROWS; row++) {
-            for (int col=0; col < COLS; col++) {
+        for ( int row = 3; row<ROWS; row++) {
+            for (int col=0; col < COLS - 3; col++) {
                 if (board [row][col] == currentPlayer &&
                     board [row][col] == board[row -1][col +1] &&
                     board [row][col] == board[row -2][col +2] &&
